@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MTG Stat Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>MTG Stat Tracker</header>
+
+  <main>
+    <section id="urlSection">
+      <label for="urlInput" class="section-label">Google Sheet URL</label>
+      <input type="text" id="urlInput" placeholder="https://docs.google.com/..." />
+      <div id="saveURLSection" style="align-items: center;">
+        <button id="saveUrlBtn">Save URL</button>
+      </div>
+    </section>
+
+    <section id="dataSection" style="display: none;">
+      <div class="section-title">Game Stats</div>
+
+      <div id="refreshControl" style="margin: 16px 0; text-align: center;">
+        <button id="refreshDataBtn">Refresh Data from Spelltable</button>
+      </div>
+
+
+      <div class="field-row">
+        <label>Game Date:</label>
+        <div id="gameDate"></div>
+      </div>
+      <div class="field-row">
+        <label>Location:</label>
+        <div id="location"></div>
+      </div>
+
+      <div class="field">
+        <label for="numberOfPlayers">Number of Players:</label>
+        <input type="number" id="numberOfPlayers" min="1" max="4" />
+      </div>
+      <div class="field">
+        <label for="duration">Duration (min):</label>
+        <input type="number" id="duration" />
+      </div>
+      <div class="field">
+        <label for="winner">Winner:</label>
+        <input type="text" id="winner" />
+      </div>
+      <div class="field">
+        <label for="winMethod">Win Method:</label>
+        <input type="text" id="winMethod" />
+      </div>
+
+      <div class="section-title">Player Stats</div>
+      <div class="field">
+        <label for="playerSelect">Current Player:</label>
+        <select id="playerSelect">
+          <option value="1" selected>Player 1</option>
+          <option value="2">Player 2</option>
+          <option value="3">Player 3</option>
+          <option value="4">Player 4</option>
+        </select>
+      </div>
+
+      <div id="playerDataSection"></div>
+
+      <div class="button-row">
+        <button id="manualPush">Submit to Google Sheets</button>
+      </div>
+
+      <div id="statusSection">
+        <span id="statusText"></span>
+      </div>
+    </section>
+  </main>
+
+  <script src="options.js"></script>
+</body>
+</html>
