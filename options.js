@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const playerDataSection = document.getElementById('playerDataSection');
   const manualPushBtn = document.getElementById('manualPush');
   const refreshDataBtn = document.getElementById('refreshDataBtn');
+  const goBackButton = document.getElementById('go-back');
 
   const playerFields = [
     { label: 'Player Name', id: 'playerName' },
@@ -44,6 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
     gameDateEl.textContent = new Date().toLocaleDateString();
     locationEl.textContent = "Online";
   }
+
+  goBackButton.addEventListener('click', () => {
+    urlSection.style.display = 'block';
+    dataSection.style.display = 'none';
+  });
 
   refreshDataBtn.addEventListener('click', () => {
     statusText.textContent = 'Refreshing...';

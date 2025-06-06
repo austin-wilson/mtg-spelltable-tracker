@@ -5,8 +5,7 @@
   "description": "Tracks MTG Commander games on SpellTable and sends data to Google Sheets.",
   "permissions": [
     "storage",
-    "activeTab",
-    "scripting"
+    "activeTab"
   ],
   "host_permissions": ["https://spelltable.wizards.com/game/*"],
   "background": {
