@@ -7,12 +7,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         sendResponse({ success: false, error: 'No Apps Script URL saved.' });
         return;
       }
-      console.log(data);
+      
+      const formBody = new URLSearchParams();
+      formBody.append('data', JSON.stringify(data));
 
       fetch(spellTableUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: formBody
       })
         .then(response => {
           if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
@@ -20,7 +21,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         })
         .then(json => {
           if (json.success) {
-            sendResponse({ success: true, gameNumber: json.gameNumber });
+            sendResponse({ success: true });
           } else {
             sendResponse({ success: false, error: json.error || 'Unknown error' });
           }
