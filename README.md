@@ -18,7 +18,8 @@ To receive game data from the extension, create a new [Google Apps Script](https
 
 Replace placeholders like `<SHEET_NAME>` with the actual values for your sheet configuration.
 
-````function doPost(e) {
+```
+function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
 
@@ -58,8 +59,7 @@ Replace placeholders like `<SHEET_NAME>` with the actual values for your sheet c
     return ContentService.createTextOutput(JSON.stringify({ success: false, error: error.message }))
                          .setMimeType(ContentService.MimeType.JSON);
   }
-}```
+}
+```
 
 This script accepts JSON data sent by the extension and writes it into your sheet. Make sure to deploy the script as a web app and use that URL in the extension setup.
-
-````
